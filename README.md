@@ -1,5 +1,9 @@
 ## Hi there 👋
 
+<!-- contributions-count -->
+**Contributions cette année :** _calcul en cours..._
+<!-- /contributions-count -->
+
 ![snake gif](https://github.com/evxryyy/evxryyy/blob/output/github-snake-dark.svg)
 
 <!--
