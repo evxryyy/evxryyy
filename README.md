@@ -1,9 +1,5 @@
 ## Hi there 👋
 
-<!-- contributions-svg -->
-![Contributions badge](https://raw.githubusercontent.com/evxryyy/evxryyy/main/contribs-badge.svg)
-<!-- /contributions-svg -->
-
 ![snake gif](https://github.com/evxryyy/evxryyy/blob/output/github-snake-dark.svg)
 
 <!--
