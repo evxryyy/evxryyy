@@ -1,0 +1,47 @@
+name: Update Contributions Count
+on:
+  schedule:
+    - cron: "0 5 * * *"   # quotidien à 05:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get contributions via GraphQL
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USER: YOUR_GITHUB_USERNAME
+        run: |
+          query='query { user(login:"'"$GH_USER"'") { contributionsCollection { contributionCalendar { totalContributions } } } }'
+          resp=$(curl -s -X POST -H "Authorization: bearer $GITHUB_TOKEN" -H "Content-Type: application/json" \
+            -d "{\"query\": $(jq -Rs . <<< \"$query\")}" https://api.github.com/graphql)
+          echo "$resp" | jq -r '.data.user.contributionsCollection.contributionCalendar.totalContributions' > total.txt
+          echo "Total contributions: $(cat total.txt)"
+
+      - name: Update README with number
+        run: |
+          total=$(cat total.txt)
+          # remplace le bloc entre les marqueurs
+          awk -v t="$total" '
+            BEGIN{p=1}
+            /<!-- contributions-count -->/ {print; print "**Contributions cette année :** " t; p=0; next}
+            /<!-- \/contributions-count -->/ {p=1; print; next}
+            { if(p) print }
+          ' README.md > README.new && mv README.new README.md
+
+      - name: Commit and push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: update contributions count"
+          file_pattern: README.md
+          branch: main
+          author_name: github-actions
+          author_email: actions@github.com
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
