@@ -16,7 +16,7 @@ jobs:
       - name: Get contributions via GraphQL
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_USER: YOUR_GITHUB_USERNAME
+          GH_USER: evxry_ll
         run: |
           query='query { user(login:"'"$GH_USER"'") { contributionsCollection { contributionCalendar { totalContributions } } } }'
           resp=$(curl -s -X POST -H "Authorization: bearer $GITHUB_TOKEN" -H "Content-Type: application/json" \
