@@ -1,6 +1,6 @@
 ## Hi there 👋
 
-![Snake animation](https://github.com/evxryyy/evxryyy/blob/output/snake.svg)
+![snake gif](https://github.com/evxryyy/evxryyy/blob/output/github-snake-dark.svg)
 
 <!--
 **evxryyy/evxryyy** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
