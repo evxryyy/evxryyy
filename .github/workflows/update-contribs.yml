@@ -17,45 +17,35 @@ jobs:
       - name: Set GH_USER
         run: echo "GH_USER=${GITHUB_REPOSITORY_OWNER:-${{ github.repository_owner }}}" >> $GITHUB_ENV
 
-      - name: Query GraphQL for contributions (robust)
+      - name: Query GraphQL for contributions (fixed)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          GH_USER="${GH_USER:-${{ github.repository_owner }}}"
+          set -euo pipefail
+          GH_USER="${GITHUB_REPOSITORY_OWNER:-${{ github.repository_owner }}}"
           echo "Using GH_USER=$GH_USER"
-          read -r -d '' PAYLOAD <<'GRAPHQL'{"query":"query ($login: String!) { user(login: $login) { contributionsCollection { contributionCalendar { totalContributions } } } }","variables":{"login":"REPLACE"}}GRAPHQL
-          PAYLOAD="${PAYLOAD/REPLACE/$GH_USER}"
+
+          # build payload safely with jq
+          query='query ($login: String!) { user(login: $login) { contributionsCollection { contributionCalendar { totalContributions } } } }'
+          PAYLOAD=$(jq -n --arg q "$query" --arg login "$GH_USER" '{"query":$q,"variables":{"login":$login}}')
+
+          echo "Payload:"
+          echo "$PAYLOAD"
+
           resp=$(curl -s -X POST -H "Authorization: bearer $GITHUB_TOKEN" -H "Content-Type: application/json" -d "$PAYLOAD" https://api.github.com/graphql)
           echo "Raw response:"
           echo "$resp"
+
           err=$(echo "$resp" | jq -r '.errors[0].message // empty')
           if [ -n "$err" ]; then
             echo "GraphQL error: $err"
             exit 1
           fi
+
           total=$(echo "$resp" | jq -r '.data.user.contributionsCollection.contributionCalendar.totalContributions // "0"')
           echo "TOTAL_CONTRIBS=$total" >> $GITHUB_ENV
           echo "Found total: $total"
 
-      - name: Generate SVG badge
-        run: |
-          total="${TOTAL_CONTRIBS:-0}"
-          # Simple SVG badge. Modifie le texte/styling si besoin.
-          cat > contribs-badge.svg <<SVG
-          <?xml version="1.0" encoding="utf-8"?>
-          <svg xmlns="http://www.w3.org/2000/svg" width="260" height="48" viewBox="0 0 260 48" role="img" aria-label="Contributions this year">
-            <title>Contributions this year</title>
-            <rect rx="6" width="260" height="48" fill="#0b1220"/>
-            <g font-family="Verdana,DejaVu Sans,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" fill="#9fb3d1">
-              <text x="18" y="20" fill="#cfe3ff" font-weight="600">Contributions</text>
-              <text x="18" y="36">this year</text>
-            </g>
-            <rect x="160" y="8" rx="4" width="86" height="32" fill="#0f1724" stroke="#1f6feb" stroke-width="1.5"/>
-            <text x="203" y="33" font-family="Verdana,DejaVu Sans,Segoe UI,Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#1fd65f" text-anchor="middle">${total}</text>
-          </svg>
-          SVG
-          echo "SVG generated, size:"
-          ls -l contribs-badge.svg
 
       - name: Commit SVG to repo
         uses: stefanzweifel/git-auto-commit-action@v4
