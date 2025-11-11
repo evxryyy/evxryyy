@@ -6,6 +6,7 @@ I'm a Roblox developer with over 3 years of experience. I focus on building open
 In addition to Roblox development, I also work with C#. I create systems, tools, and gameplay features across both Roblox and Unity projects. My goal is to provide clean, reliable, and reusable code that helps other developers build faster and more efficiently.
 </i>
 
+----
 
 ![snake gif](https://github.com/evxryyy/evxryyy/blob/output/github-snake-dark.svg)
 
