@@ -22,13 +22,13 @@ In addition to Roblox development, I also work with C#. I create systems, tools,
 
 <br>
 
-----
+##
 
 ## Stats ✨
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=evxryyy&show_icons=true&theme=github_dark)
 
-----
+##
 
 ![snake gif](https://github.com/evxryyy/evxryyy/blob/output/github-snake-dark.svg)
 
