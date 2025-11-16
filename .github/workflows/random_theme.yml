@@ -1,0 +1,34 @@
+name: Rotate GitHub Stats Theme
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # Exécution toutes les heures
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+      - uses: actions/checkout@v3
+
+      - name: Rotate theme
+        run: |
+          # Liste des thèmes valides pour GitHub Readme Stats
+          themes=("default" "transparent" "shadow_red" "shadow_green" "shadow_blue" "dark" "radical" "dracula" "cobalt" "synthwave" "highcontrast" "great-gatsby" "vue" "vue-dark" "buefy" "graywhite" "github_dark" "discord_old_blurple" "swift" "apprentice" "blue_navy" "rose" "one_dark_pro" "prussian")
+
+          # Sélection d'un thème aléatoire
+          new_theme=${themes[$RANDOM % ${#themes[@]}]}
+
+          # Réécriture de la ligne dans README.md
+          sed -i 's#https://github-readme-stats.vercel.app/api?username=evxryyy[^)]*#https://github-readme-stats.vercel.app/api?username=evxryyy\&show_icons=true\&theme='"$new_theme"'#' README.md
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          git add README.md
+          git commit -m "Rotate theme" || echo "No changes"
+          git push
