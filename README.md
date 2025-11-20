@@ -26,7 +26,7 @@ In addition to Roblox development, I also work with C#. I create systems, tools,
 
 ## Stats ✨
 
-[![GitHub stats](https://github-readme-stats.vercel.app/api?username=evxryyy&show_icons=true&theme=one_dark_pro)](https://github.com/evxryyy/github-readme-stats)
+[![GitHub stats](https://github-readme-stats.vercel.app/api?username=evxryyy&show_icons=true&theme=radical)](https://github.com/evxryyy/github-readme-stats)
 
 ##
 
