@@ -19,6 +19,8 @@ In addition to Roblox development, I also work with C#. I create systems, tools,
 <img align="left" alt="NET" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" />
 <img align="left" alt="UNITY" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" />
 <img align="left" alt="SQL" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg" />
+<img align="left" alt="RIDER" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rider/rider-original.svg" />
+<img align="left" alt="VS" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" />
 
 <br>
 
