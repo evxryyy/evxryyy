@@ -1,8 +1,8 @@
-name: Update GitHub Card
- 
+name: Update GitHub Card v2
+
 on:
   schedule:
-    - cron: "0 * * * *"   # toutes les heures
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 env:
@@ -18,12 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Installer dépendances minimales
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y ca-certificates curl git >/dev/null
-
-      - name: Récupérer et valider la GitHub Card
+      - name: Fetch GitHub Card
         run: |
           mkdir -p "$(dirname "$OUT_PATH")"
           rm -f "$TMP" "$OUT_PATH"
@@ -31,48 +26,29 @@ jobs:
           SVG_URL="https://githubcard.com/${GH_USER}.svg"
           CARD_URL="https://githubcard.com/${GH_USER}/card"
 
-          # 1) Essayer l'endpoint .svg
           curl -sL "$SVG_URL" -o "$TMP" || true
 
-          # 2) Si la réponse contient un <svg> on l'extrait proprement
           if grep -q "<svg" "$TMP"; then
-            awk 'BEGIN{found=0} /<svg/{found=1} found{print} /<\/svg>/{print; exit}' "$TMP" > "$OUT_PATH" || true
+            awk 'BEGIN{found=0} /<svg/{found=1} found{print} /<\/svg>/{print; exit}' "$TMP" > "$OUT_PATH"
           else
-            # 3) fallback : récupérer la page /card et extraire le svg embarqué
             curl -sL "$CARD_URL" -o "$TMP" || true
+
             if grep -q "<svg" "$TMP"; then
-              awk 'BEGIN{found=0} /<svg/{found=1} found{print} /<\/svg>/{print; exit}' "$TMP" > "$OUT_PATH" || true
+              awk 'BEGIN{found=0} /<svg/{found=1} found{print} /<\/svg>/{print; exit}' "$TMP" > "$OUT_PATH"
             else
-              echo "ERROR: impossible d'extraire un SVG depuis $SVG_URL ni $CARD_URL" >&2
-              # écrire un SVG d'erreur minimal pour éviter que README casse l'affichage
-              cat > "$OUT_PATH" <<'SVGERR'
-            <svg xmlns="http://www.w3.org/2000/svg" width="600" height="120" viewBox="0 0 600 120">
-              <rect width="100%" height="100%" fill="#111"/>
-              <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="14">
-                GitHub Card unavailable
-              </text>
-            </svg>
-            SVGERR
+              printf '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="120"><rect width="100%%" height="100%%" fill="#111"/><text x="50%%" y="50%%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="14">GitHub Card unavailable</text></svg>' > "$OUT_PATH"
             fi
           fi
 
-          # 4) Vérifier que le fichier obtenu contient bien un svg
           if [ ! -s "$OUT_PATH" ] || ! grep -q "<svg" "$OUT_PATH"; then
-            echo "ERROR: fichier SVG invalide ou vide" >&2
+            echo "Invalid SVG generated"
             exit 1
           fi
 
-          # normaliser l'encodage et retirer l'éventuel BOM
-          tail -c +1 "$OUT_PATH" > "$OUT_PATH.tmp" && mv "$OUT_PATH.tmp" "$OUT_PATH"
-
-      - name: Commit & Push si changement
+      - name: Commit & Push
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add "$OUT_PATH"
-          if git diff --cached --quiet; then
-            echo "Pas de changement."
-            exit 0
-          fi
-          git commit -m "Auto-update GitHub Card"
+          git commit -m "Auto-update GitHub Card" || exit 0
           git push
