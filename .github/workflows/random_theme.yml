@@ -1,31 +1,27 @@
-name: Rotate GitHub Stats Theme
+name: Update GitHub Card
 
 on:
   schedule:
-    - cron: "0 * * * *"
-  workflow_dispatch:
+    - cron: "0 * * * *"   # chaque heure
+  workflow_dispatch:      # lancement manuel
 
 jobs:
-  update:
+  update-card:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Rotate theme
+      - name: Récupérer la GitHub Card
         run: |
-          themes=("default" "transparent" "shadow_red" "shadow_green" "shadow_blue" "dark" "radical" "dracula" "cobalt" "synthwave" "highcontrast" "great-gatsby" "vue" "vue-dark" "buefy" "graywhite" "github_dark" "discord_old_blurple" "swift" "apprentice" "blue_navy" "rose" "one_dark_pro" "prussian")
-          new_theme=${themes[$RANDOM % ${#themes[@]}]}
+          mkdir -p assets
+          curl -L "https://githubcard.com/evxryyy/card" -o assets/github-card.svg
 
-          # Remplace l'URL du widget en ne modifiant que le paramètre theme.
-          # On utilise \& dans la chaîne de remplacement pour éviter que sed n'interprète &.
-          sed -i "s#https://github-readme-stats.vercel.app/api?username=evxryyy[^)]*#https://github-readme-stats.vercel.app/api?username=evxryyy\\&show_icons=true\\&theme=${new_theme}#g" README.md
-
-      - name: Commit changes
+      - name: Commit & Push
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add README.md
-          git commit -m "Rotate theme" || echo "No changes"
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add assets/github-card.svg
+          git commit -m "Auto-update GitHub Card" || exit 0
           git push
