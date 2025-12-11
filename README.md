@@ -27,7 +27,6 @@ In addition to Roblox development, I also work with C#. I create systems, tools,
 ##
 
 ## Stats ✨
-
 ![GitHub Card](https://githubcard.com/evxryyy.svg)
 
 ##
