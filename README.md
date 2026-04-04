@@ -12,7 +12,6 @@ In addition to Roblox development, I also work with C#. I create systems, tools,
 
 <img align ="left" alt="CSharp" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" />    
 <img align="left" alt="Lua" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/lua/lua-original.svg" />
-<!--<img align="left" alt="TypeScript" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" /><-->
 <img align="left" alt="HTML" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
 <img align="left" alt="CSS" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
 <img align="left" alt="WINDOW" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows11/windows11-original.svg" />
@@ -21,6 +20,7 @@ In addition to Roblox development, I also work with C#. I create systems, tools,
 <img align="left" alt="SQL" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg" />
 <img align="left" alt="RIDER" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rider/rider-original.svg" />
 <img align="left" alt="VS" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" />
+<img align="left" alt="TS" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
 
 <br>
 
