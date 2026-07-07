@@ -1,7 +1,7 @@
 ## Introduction 😄
 
 <i>
-Hi, I'm evxry.
+Hi, I'm evxry. 
 
 I'm a Roblox developer with over 3 years of experience. I focus on building open-source libraries and developer tools, including modules like `Buffer` and other core utilities aimed at improving workflow and performance.
 
