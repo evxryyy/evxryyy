@@ -1,32 +1,20 @@
-## Introduction 😄
+## About
 
-<i>
-Hi, I'm evxry.
+I'm evxry, a developer with over 3 years of experience, specialized in Roblox development and low-level tooling.  
+My work focuses on building open-source libraries, frameworks, and developer tools designed to improve workflow, performance, and long-term code reliability. I put a strong emphasis on writing clean, maintainable, and reusable code that other developers can rely on and extend.
 
-I'm a Roblox developer with over 3 years of experience. I focus on building open-source libraries and developer tools, including modules like `Buffer` and other core utilities aimed at improving workflow and performance.
+## Focus
 
-In addition to Roblox development, I also work with C#. I create systems, tools, and gameplay features across both Roblox and Unity projects. My goal is to provide clean, reliable, and reusable code that helps other developers build faster and more efficiently.
-</i>
+Most of my recent work revolves around **binary serialization**, **data structure handling**, and **core utilities** for the Roblox ecosystem. My published projects include modules such as `Bitstream` and many others in `Rbxenv` repos, the latter being a full framework rather than a simple library, covering binary serialization, custom type handling, and structured data management.  
+I aim to provide tools that solve real problems developers face daily, with a focus on performance, extensibility, and clear APIs.
 
-## Tools 🛠️
+## Beyond Roblox
 
-<img align ="left" alt="CSharp" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" />    
-<img align="left" alt="Lua" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/lua/lua-original.svg" />
-<img align="left" alt="HTML" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-<img align="left" alt="CSS" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-<img align="left" alt="WINDOW" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows11/windows11-original.svg" />
-<img align="left" alt="NET" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" />
-<img align="left" alt="UNITY" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" />
-<img align="left" alt="SQL" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg" />
-<img align="left" alt="RIDER" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rider/rider-original.svg" />
-<img align="left" alt="VS" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" />
-<img align="left" alt="TS" style="padding-right:10px;" width="35px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
+Outside of the Roblox ecosystem, I also work with **C#** on gameplay systems, tools, and features across both Roblox and Unity projects. This dual environment allows me to design solutions that transfer well between platforms and to approach problems from both a scripting and a system-level perspective.
 
-<br>
+---- 
 
-##
-
-## Stats ✨
-![GitHub Card](https://githubcard.com/evxryyy.svg)
-
-##
+[![Profile Views](https://komarev.com/ghpvc/?username=evxryyy&style=for-the-badge&color=blue)](https://github.com/evxryyy)
+[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Dummy_yysl)
+[![Roblox](https://img.shields.io/badge/Roblox-000000?style=for-the-badge&logo=roblox&logoColor=white)](https://www.roblox.com/users/3813642140/profile)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/evxryy)
