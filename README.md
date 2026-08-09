@@ -1,6 +1,6 @@
 ## About
 
-I'm evxry, a developer with over 3 years of experience, specialized in Roblox development and low-level tooling.  
+I'm evxry, a developer with over 4 years of experience, specialized in Roblox development and low-level tooling.  
 My work focuses on building open-source libraries, frameworks, and developer tools designed to improve workflow, performance, and long-term code reliability. I put a strong emphasis on writing clean, maintainable, and reusable code that other developers can rely on and extend.
 
 ## Focus
