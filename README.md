@@ -14,7 +14,7 @@ Outside of the Roblox ecosystem, I also work with **C#** on gameplay systems, to
 
 ---- 
 
-<!--[![Profile Views](https://komarev.com/ghpvc/?username=evxryyy&style=for-the-badge&color=blue)](https://github.com/evxryyy)-->
+[![Profile Views](https://komarev.com/ghpvc/?username=evxryyy&style=for-the-badge&color=blue)](https://github.com/evxryyy)
 [![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Dummy_yysl)
 [![Roblox](https://img.shields.io/badge/Roblox-000000?style=for-the-badge&logo=roblox&logoColor=white)](https://www.roblox.com/users/3813642140/profile)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/evxryy)
